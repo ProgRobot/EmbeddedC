@@ -3,8 +3,7 @@
 
 int main(int argc, char* argv[]) {
 
-	//Un petit jeu que j'appelle « Plus ou moins ».
-
+	//! Un petit jeu que j'appelle « Plus ou moins ».
 
 	/*
 	Le principe est le suivant.
@@ -17,15 +16,38 @@ Puis l'ordinateur vous redemande le nombre.
 Et ainsi de suite, jusqu'à ce que vous trouviez le nombre mystère.
 	*/
 
+	//!Version 1: We have two players, the first write a secret number and the second try to find it
 
+	double secretNumber = 0, rightNumber=0;
 
-
-
+	printf("PLAYER 1: Enter a secret number: ");
+	scanf_s("%f", &secretNumber);
 	
-	
+	printf("I challenge you, find the secret number^^ \n");
+
+	do
+	{
+		printf("PLAYER 2: Enter the right number: ");
+		scanf_s("%f", &rightNumber);
+
+		if (rightNumber == secretNumber)
+		{
+			//TODO erreur à corriger pourquoi l'affichage du nombre ne se fait pas correctement ?
+			printf("Felicitation %f est le bon nombre", rightNumber);
+			break;
+		}
+		else if (rightNumber<secretNumber)
+		{
+			printf("The secret number is greater than the one you enter.\n");
+		}
+		else
+		{
+			printf("The secret number is fewer than the one you enter.\n");
+		}
+	} while (secretNumber!=rightNumber);
+
 	
 	
 	return 0;
-
 }
 
